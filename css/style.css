@@ -1,0 +1,127 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #5dade2;
+    overflow: hidden;
+}
+
+#loader {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    animation: rotate1 10s linear infinite;
+}
+
+#loader div {
+    position: absolute;
+    left: calc(50% - 50px);
+    top: 0;
+    width: 100px;
+    height: 150px;
+    transform-origin: bottom;
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+}
+
+#loader span:nth-child(1) {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    position: absolute;
+    left: -25px;
+    top: -25px;
+    border: 15px solid transparent;
+    border-left: 15px solid red;
+    border-right: 15px solid red;
+    animation: rotate2 2s linear infinite;
+    transition: .3s;
+}
+
+#loader span:nth-child(2) {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    position: absolute;
+    left: -50px;
+    top: -50px;
+    border: 15px solid transparent;
+    border-top: 15px solid slateblue;
+    border-bottom: 15px solid slateblue;
+    animation: rotate3 2s linear infinite;
+    transition: .5s;
+}
+
+#loader div:nth-child(odd) {
+    background-color: slateblue;
+    animation: rotate 5s linear infinite;
+}
+
+#loader div:nth-child(even) {
+    background-color: red;
+    animation: rotate 5s linear infinite;
+    animation-delay: 2.5s;
+}
+
+@keyframes rotate {
+    0% {
+        clip-path: polygon(50% 100%, 0 0, 100% 0);
+    }
+    17% {
+        clip-path: polygon(50% 100%, 0 0, 50% 100%);
+    }
+    34% {
+        clip-path: polygon(50% 100%, 0 0, 100% 0);
+    }
+
+    51% {
+        clip-path: polygon(50% 100%, 50% 100%, 100% 0);
+    }
+    68% {
+        clip-path: polygon(50% 100%, 0 0, 100% 0);
+    }
+
+    85% {
+        clip-path: polygon(50% 0%, 0 0, 50% 100%);
+    }
+    100% {
+        clip-path: polygon(50% 100%, 0 0, 100% 0);
+    }
+}
+
+@keyframes rotate1 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate2 {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes rotate3 {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
